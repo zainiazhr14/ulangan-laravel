@@ -27,3 +27,5 @@ Route::get('/barang/hapus/{id}', 'BarangController@hapus')->name('barang.hapus')
 // edit
 Route::get('/barang/edit/{id}', 'BarangController@edit')->name('barang.edit');
 Route::post('/barang/update/{id}', 'BarangController@update')->name('barang.update');
+// cari
+Route::get('/barang/cari', 'BarangController@cari')->name('barang.cari');

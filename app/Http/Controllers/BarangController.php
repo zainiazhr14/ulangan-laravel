@@ -64,4 +64,13 @@ class BarangController extends Controller
 
         return redirect('/barang')->with('pesan','Data Berhasil Diubah');
     }
+    public function cari(Request $request)
+    {
+        $batas = 5;
+        $cari = $request->cari;
+        $data_barang = Barang::where('nama', 'like', '%'.$cari.'%')
+                        ->paginate($batas);
+        $no = $batas * ($data_barang->currentPage() - 1);
+        return view('barang.cari', compact('data_barang', 'no'));
+    }
 }

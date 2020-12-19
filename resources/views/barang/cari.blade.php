@@ -13,6 +13,8 @@
           <button type="submit" class="waves-efect waves-light btn col s2">Cari</button>
         </div>
       </form>
+      @if (count($data_barang))
+          
       <a href="{{ route('barang.tambah') }}" class="waves-effect waves-light btn">Tambah Data Barang</a>
       @if (Session::has('pesan'))
           <p>{{ Session::get('pesan') }}</p>
@@ -48,6 +50,10 @@
         </tbody>
       </table>
       {{ $data_barang->links() }}
+      @else
+      <p>Data Barang Tidak Ditemukan</p>
+      <a href="/barang">Kembali</a>
+      @endif
   </div>
         
 @endsection
